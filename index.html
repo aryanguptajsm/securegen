@@ -6,19 +6,18 @@
   <title>SecureGen — Smart & Strong Security Tools</title>
   <meta name="description" content="SecureGen — Free premium password generator, username ideas, strength checker. No signup, local-only storage, works offline."/>
   <meta name="theme-color" content="#ffffff"/>
-  <link rel="icon" href="data:,">
-  <style>
+  <link rel="icon" href="data:,"> 
+    <style>
     :root{
       /* Light theme (default) variables */
-      --royal-blue: #0066ff; /* accent for light */
+      --royal-blue: #0066ff;
       --white: #ffffff;
       --text: #0b1220;
       --muted: #6b7280;
       --card-bg: rgba(255,255,255,0.85);
       --panel-bg: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(248,250,255,0.9));
-      --result-bg: #0f172a; /* fallback for result box on light (will be overridden) */
+      --result-bg: #0f172a;
       --bg: linear-gradient(180deg, rgba(0,102,255,0.12) 0%, rgba(255,255,255,1) 55%, #fbfdff 100%);
-     /* Strength bar colors */
       --danger: #ef4444;
       --success: #16a34a;
       --radius: 8px;
@@ -26,22 +25,20 @@
       font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
     *{box-sizing:border-box}
-    html{height:100%}
+    html,body{height:100%;margin:0;padding:0;width:100%;}
     body{
-      height:100%;
+      min-height:100vh;
       margin:0;
-      /* use CSS variable for theme background; body.dark overrides --bg so this will switch correctly */
       background: var(--bg);
       color: var(--text);
       -webkit-font-smoothing:antialiased;
-      min-height:100vh;
       background-repeat:no-repeat;
       background-attachment:fixed;
       transition: background 350ms ease, color 250ms ease;
+      font-size:16px;
     }
- 
-     /* Header with translucent blurred background */
-     header{position:sticky;top:12px;z-index:120;padding:8px 0}
+
+    header{position:sticky;top:12px;z-index:120;padding:8px 0;width:100%;}
     .nav-wrap{
       backdrop-filter: blur(8px) saturate(1.05);
       -webkit-backdrop-filter: blur(8px);
@@ -50,32 +47,67 @@
       padding:8px 12px;
       box-shadow:var(--shadow);
       border:1px solid rgba(0,102,255,0.06);
+      width:100%;
     }
- 
-     .container{max-width:1100px;margin:0 auto;padding:10px 22px}
-     .nav{display:flex;align-items:center;gap:18px}
-     .logo{font-weight:800;font-size:20px;letter-spacing:0.3px;color:var(--royal-blue);display:flex;align-items:center;gap:10px}
-     nav ul{list-style:none;margin:0;padding:0;display:flex;gap:14px;align-items:center}
-     nav a{color:var(--royal-blue);text-decoration:none;font-weight:700}
- 
-     .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:36px 0}
-    .panel{background:var(--panel-bg);padding:18px;border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid rgba(255,255,255,0.6)}
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:18px}
+    .container{max-width:1100px;margin:0 auto;padding:10px 22px;width:100%;}
+    .nav{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+    .logo{font-weight:800;font-size:20px;letter-spacing:0.3px;color:var(--royal-blue);display:flex;align-items:center;gap:10px}
+    nav ul{list-style:none;margin:0;padding:0;display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
+    nav a{color:var(--royal-blue);text-decoration:none;font-weight:700}
+
+    .hero{
+      display: grid;
+      grid-template-columns:1fr 420px;
+      gap:28px;
+      align-items:center;
+      padding:36px 0;
+    }
+    .panel{
+      background:var(--panel-bg);
+      padding:18px;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      border:1px solid rgba(255,255,255,0.6)
+    }
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:14px;
+      margin-top:18px;
+    }
     .card{padding:18px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(2,6,23,0.06);border:1px solid rgba(255,255,255,0.6);background:linear-gradient(180deg, rgba(255,255,255,0.95), #fbfdff)}
-     .btn{background:var(--royal-blue);color:var(--white);border:none;padding:12px 18px;border-radius:10px;font-weight:800;cursor:pointer}
-     .btn.secondary{background:transparent;color:var(--royal-blue);border:1px solid rgba(0,81,255,0.12)}
-     .tools{display:grid;grid-template-columns:1fr 360px;gap:18px}
-     .checkboxes{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-     .strength{height:12px;background:#eef2ff;border-radius:999px;overflow:hidden;border:1px solid rgba(2,6,23,0.03)}
-     .strength > i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--danger),#ffc107,var(--success));transition:width .35s}
-    .result{font-family:ui-monospace,monospace;background:var(--result-bg);color:#fff;padding:12px;border-radius:8px;margin-top:12px;overflow-x:auto}
-     .saved-list{max-height:320px;overflow:auto}
-     .saved-item{display:flex;align-items:center;justify-content:space-between;padding:10px;border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,0.55),#fbfdff);border:1px solid rgba(255,255,255,0.6);margin-bottom:10px}
-     .suggestion{padding:10px;border-radius:8px;background:linear-gradient(180deg,#ffffff,#fbfdff);border:1px solid rgba(0,81,255,0.06);display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-     .badge{padding:6px 10px;border-radius:10px;background:linear-gradient(90deg,#eef2ff,#f7f9ff);font-weight:800;color:var(--royal-blue)}
-     .test-output{font-family:ui-monospace,monospace;font-size:12px;color:#6b7280;display:none}
- 
-    /* Dark theme overrides: grey -> black gradient */
+    .btn{background:var(--royal-blue);color:var(--white);border:none;padding:12px 18px;border-radius:10px;font-weight:800;cursor:pointer}
+    .btn.secondary{background:transparent;color:var(--royal-blue);border:1px solid rgba(0,81,255,0.12)}
+    .tools{
+      display:grid;
+      grid-template-columns:1fr 360px;
+      gap:18px;
+      width:100%;
+    }
+    .checkboxes{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .strength{height:12px;background:#eef2ff;border-radius:999px;overflow:hidden;border:1px solid rgba(2,6,23,0.03)}
+    .strength > i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--danger),#ffc107,var(--success));transition:width .35s}
+    .result{
+      font-family:ui-monospace,monospace;
+      background:var(--result-bg);
+      color:#fff;
+      padding:12px;
+      border-radius:8px;
+      margin-top:12px;
+      overflow-x:auto;
+      word-break:break-all;
+      max-width:100%;
+    }
+    .saved-list{max-height:320px;overflow:auto}
+    .saved-item{display:flex;align-items:center;justify-content:space-between;padding:10px;border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,0.55),#fbfdff);border:1px solid rgba(255,255,255,0.5);margin-bottom:6px;}
+    .suggestion{padding:10px;border-radius:8px;background:linear-gradient(180deg,#ffffff,#fbfdff);border:1px solid rgba(0,81,255,0.06);display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;}
+    .badge{padding:6px 10px;border-radius:10px;background:linear-gradient(90deg,#eef2ff,#f7f9ff);font-weight:800;color:var(--royal-blue)}
+    .test-output{font-family:ui-monospace,monospace;font-size:12px;color:#6b7280;display:none}
+
+    /* Hide scrollbars for container on mobile horizontally */
+    .container, .panel, .tools, .hero, .cards {overflow-x:auto;}
+
+    /* Dark theme overrides */
     body.dark{
       --royal-blue: #4d84ff;
       --text: #e6eefb;
@@ -86,38 +118,74 @@
       --bg: linear-gradient(180deg, #0b0f13 0%, #202428 100%);
       color: var(--text);
     }
-     body.dark .nav-wrap{
-       backdrop-filter: blur(8px) saturate(1.05);
-       -webkit-backdrop-filter: blur(8px);
-       background: rgba(6,10,20,0.6);
-     background: rgba(10,12,15,0.6);
-       border-radius:12px;
-       padding:8px 12px;
-       box-shadow: 0 6px 18px rgba(0,0,0,0.4);
-       border:1px solid rgba(255,255,255,0.04);
-     }
-     body.dark .logo{ color: var(--royal-blue) }
-     body.dark nav a{ color: var(--royal-blue) }
-     body.dark .panel,
-     body.dark .card{
-              background: linear-gradient(180deg, var(--card-bg), rgba(6,10,20,0.6));
-      background: var(--panel-bg);
-       color: var(--text);
-       border:1px solid rgba(255,255,255,0.04);
-       box-shadow: 0 8px 24px rgba(2,6,23,0.35);
-     }
-     body.dark .btn{ background:var(--royal-blue); color:var(--white) }
-     body.dark .btn.secondary{ background:transparent; color:var(--royal-blue); border:1px solid rgba(255,255,255,0.04) }
-     body.dark .result{ background:var(--result-bg); color:var(--text) }
-     body.dark input, body.dark textarea, body.dark select, body.dark .checkboxes input[type="checkbox"]{
-       background:#071424;
-       color:var(--text);
-       border:1px solid rgba(255,255,255,0.04);
-     }
-     body.dark .strength{ background:#0b1220; border:1px solid rgba(255,255,255,0.04) }
-     body.dark .badge{ background: linear-gradient(90deg,#214de6,#4db3ff); color:#fff }
-     @media(max-width:980px){.hero{grid-template-columns:1fr}.tools{grid-template-columns:1fr}.container{padding:14px}}
-   </style>
+    body.dark .nav-wrap{
+      background: rgba(6,10,20,0.6);
+      border:1px solid rgba(255,255,255,0.04);
+    }
+    body.dark .logo, body.dark nav a{ color: var(--royal-blue) }
+    body.dark .panel, body.dark .card{
+      background:var(--panel-bg);
+      color: var(--text);
+      border:1px solid rgba(255,255,255,0.04);
+      box-shadow: 0 8px 24px rgba(2,6,23,0.35);
+    }
+    body.dark .btn{ background:var(--royal-blue); color:var(--white) }
+    body.dark .btn.secondary{ background:transparent; color:var(--royal-blue); border:1px solid rgba(255,255,255,0.04) }
+    body.dark .result{ background:var(--result-bg); color:var(--text) }
+    body.dark input, body.dark textarea, body.dark select, body.dark .checkboxes input[type="checkbox"]{
+      background:#071424;
+      color:var(--text);
+      border:1px solid rgba(255,255,255,0.04);
+    }
+    body.dark .strength{ background:#0b1220; border:1px solid rgba(255,255,255,0.04) }
+    body.dark .badge{ background: linear-gradient(90deg,#214de6,#4db3ff); color:#fff }
+
+    /* RESPONSIVE DESIGN - start here */
+    @media (max-width: 1200px){
+      .container{max-width:98vw;padding:8px;}
+      .tools{grid-template-columns:1fr 300px;}
+      .hero{grid-template-columns:1fr 340px;}
+    }
+    @media (max-width: 900px){
+      .tools, .hero{
+        grid-template-columns:1fr;
+        gap:16px;
+      }
+      aside{
+        margin-top:18px;
+        width:100%;
+      }
+    }
+    @media (max-width: 660px) {
+      html, body{font-size:15px;}
+      .container{padding:7px;}
+      header{top:8px;}
+      .panel{padding:12px;}
+      nav ul{gap:7px;}
+      .card{padding:12px;}
+    }
+    @media (max-width: 600px) {
+      html, body{font-size:14.5px;}
+      .container{padding:3px;}
+      .panel, .card{padding:8px;}
+      .cards{grid-template-columns:1fr;}
+      nav ul{gap:5px;}
+      .result, pre{font-size:13px;padding:8px;}
+      .btn, .btn.secondary{padding:9px 12px;font-size:15px;}
+      .hero,.tools{padding:0;}
+    }
+    @media (max-width:430px) {
+      html, body{font-size:13.2px;}
+      .container{padding:1px;}
+      .panel, .card{padding:4px;}
+    }
+    /* For narrow screens, stack everything and use full width panels */
+    @media (max-width: 900px) {
+      .panel, .card, aside, .tools, .hero, .container{max-width:100vw;}
+    }
+    /* Make sure pre and result containers always fit the screen and wrap */
+    pre, .result {white-space:pre-wrap;word-break:break-all;max-width:100vw;}
+  </style>
 </head>
 <body>
   <header>
