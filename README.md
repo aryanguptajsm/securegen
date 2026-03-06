@@ -1,64 +1,158 @@
-# SecureGen (GitHub Pages repo)
+<div align="center">
 
-This repo contains a single-page static site: `index.html`. It is ready to be published using **GitHub Pages**.
+# 🔐 SecureGen
 
-## Quick steps to host on GitHub Pages (web UI)
-1. Go to https://github.com and sign in (or create an account).
-2. Click **New repository**.
-   - Repository name: `securegen` (or whatever you like)
-   - Add a short description (optional).
-   - Select **Public**.
-   - Do NOT initialize with a README (optional).
-3. After repo is created, click **Upload files** and drag-drop `index.html`, `.nojekyll`, and `README.md`.
-4. Commit the changes (Add files).
-5. Go to **Settings → Pages** (or **Settings → Code and automation → Pages**).
-   - Under **Build and deployment**, set Source to **Deploy from a branch**.
-   - Branch: `main` (or `master` depending on repo), Folder: `/ (root)`.
-   - Save.
-   - Once Pages is enabled, toggle **Enforce HTTPS** (if available).
-6. Wait a few minutes and open the provided `https://<your-username>.github.io/<repo-name>/` URL.
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&pause=1200&color=00F7FF&center=true&vCenter=true&width=850&lines=SecureGen+-+Secure+Static+Website;Deploy+Instantly+with+GitHub+Pages;Fast+%7C+Secure+%7C+Minimal;Modern+Web+Deployment" />
 
-## Quick steps to host with git (command line)
-If you have git installed:
+<br>
+
+![Repo Size](https://img.shields.io/github/repo-size/aryanguptajsm/securegen?style=for-the-badge)
+![Stars](https://img.shields.io/github/stars/aryanguptajsm/securegen?style=for-the-badge)
+![Forks](https://img.shields.io/github/forks/aryanguptajsm/securegen?style=for-the-badge)
+![Issues](https://img.shields.io/github/issues/aryanguptajsm/securegen?style=for-the-badge)
+
+</div>
+
+---
+
+# 🚀 About SecureGen
+
+**SecureGen** is a lightweight static website built for **fast and secure deployment using GitHub Pages**.
+
+This repository contains a minimal project structure designed to publish a website instantly with HTTPS support and GitHub hosting.
+
+---
+
+# 📁 Project Structure
+
+```
+securegen
+│
+├── index.html
+├── .nojekyll
+└── README.md
+```
+
+**index.html**
+Main website file.
+
+**.nojekyll**
+Prevents GitHub Pages from ignoring folders that start with `_`.
+
+**README.md**
+Project documentation.
+
+---
+
+# 🌐 Deploy Using GitHub Pages (Web Method)
+
+1. Go to GitHub and create a repository.
+
+2. Upload the following files:
+
+```
+index.html
+.nojekyll
+README.md
+```
+
+3. Open repository settings:
+
+```
+Settings → Pages
+```
+
+4. Configure deployment:
+
+```
+Source: Deploy from a branch
+Branch: main
+Folder: / (root)
+```
+
+5. Save the settings.
+
+Your website will be available at:
+
+```
+https://your-username.github.io/securegen/
+```
+
+Enable **Enforce HTTPS** after deployment.
+
+---
+
+# ⚡ Deploy Using Git (Terminal)
 
 ```bash
-# from a folder containing index.html
 git init
 git add index.html
 git commit -m "Initial commit - SecureGen"
 git branch -M main
-git remote add origin https://github.com/<your-username>/<repo-name>.git
+git remote add origin https://github.com/aryanguptajsm/securegen.git
 git push -u origin main
-# then go to Settings → Pages and enable Pages as described above
 ```
 
-## Files included
-- `index.html` — the website.
-- `.nojekyll` — prevents GitHub Pages from ignoring files/folders that start with `_`.
-- `README.md` — this file.
-
-## Removing "Dangerous site" / Brave warning (Google Safe Browsing)
-If you or Brave sees a "Dangerous site" warning, do these:
-1. Make sure the site is served over HTTPS and `Enforce HTTPS` is ON in GitHub Pages settings.
-2. Ensure the site content does not contain deceptive login prompts or fake branding for other companies.
-3. If content is clean, request a review from Google Safe Browsing:
-   - Visit: https://transparencyreport.google.com/safe-browsing/search
-   - Search your site and request a review.
-4. Wait 24–72 hours after fixing issues and requesting review — Google will update the flag if everything is safe.
-
-## Custom domain (optional)
-If you want your own domain:
-1. In repo settings (Pages) add `example.com` (your domain) under Custom domain.
-2. Add DNS records at your domain registrar:
-   - For apex domain (example.com): add A records pointing to GitHub Pages IPs (check GitHub docs for IPs).
-   - For subdomain (www): add a CNAME to `<your-username>.github.io`.
-3. Enable **Enforce HTTPS** after DNS propagates (may take up to 48 hours).
+Then enable **GitHub Pages** in repository settings.
 
 ---
 
-If you'd like, I can:
-- Create the GitHub repository for you (I can't access your GitHub without credentials) — I'll provide commands and files.
-- Walk you step-by-step while you perform the actions.
-- Generate a `CNAME` or `README` customized with your username and repo name.
+# 🛡 Fix “Dangerous Site” Warning
 
-Download the prepared zip and upload its contents to your GitHub repo or push via git.
+If browsers like Brave show a warning:
+
+1. Ensure HTTPS is enabled in GitHub Pages settings.
+2. Remove deceptive or suspicious content.
+3. Request a review from Google Safe Browsing.
+
+```
+https://transparencyreport.google.com/safe-browsing/search
+```
+
+The review process usually takes **24–72 hours**.
+
+---
+
+# 🌍 Custom Domain (Optional)
+
+You can connect your own domain.
+
+Open:
+
+```
+Settings → Pages → Custom Domain
+```
+
+Example DNS configuration:
+
+```
+example.com → GitHub Pages A records
+www.example.com → CNAME → username.github.io
+```
+
+After DNS propagation, enable **HTTPS**.
+
+---
+
+# 📊 Repository Stats
+
+<div align="center">
+
+<img src="https://github-readme-stats.vercel.app/api?username=aryanguptajsm&show_icons=true&theme=tokyonight" />
+
+</div>
+
+---
+
+# 📬 Contact
+
+📧 **Email:** [aryangupta.jsm@gmail.com](mailto:aryangupta.jsm@gmail.com)
+💻 **GitHub:** https://github.com/aryanguptajsm
+
+---
+
+<div align="center">
+
+⭐ If you find this project useful, consider giving it a **star**.
+
+</div>
