@@ -130,17 +130,7 @@ example.com → GitHub Pages A records
 www.example.com → CNAME → username.github.io
 ```
 
-After DNS propagation, enable **HTTPS**.
-
----
-
-# 📊 Repository Stats
-
-<div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=aryanguptajsm&show_icons=true&theme=tokyonight" />
-
-</div>
+After DNS propagation, enable **HTTPS*
 
 ---
 
