@@ -17,7 +17,7 @@
 
 # 🚀 About SecureGen
 
-**SecureGen** is a lightweight static website built for **fast and secure deployment using GitHub Pages**.
+**SecureGen** is a lightweight and static built for **fast and secure password generator**.
 
 This repository contains a minimal project structure designed to publish a website instantly with HTTPS support and GitHub hosting.
 
