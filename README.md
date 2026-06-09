@@ -52,6 +52,6 @@ Project documentation.
 
 <div align="center">
 
-⭐ If you find this project useful, consider giving it a **star**.
+ If you find this project useful, consider giving it a **star**.
 
 </div>
